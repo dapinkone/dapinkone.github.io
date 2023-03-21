@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Developer Portfolio</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="scripts.js"></script>
 </head>
-<body>		
+
+<body>
 	<header>
 		<h1>Peter Iriarte</h1>
 		<nav>
 			<ul>
-				<li id="contact">
-					<a href="mailto:peter.iriarte24+web@gmail.com"><img src='./img/envelope-solid.svg' class="contact_icon"/></a>
-					<a href="https://www.linkedin.com/in/peter-iriarte-9a9802138/"><img src='./img/linkedin.svg' class="contact_icon" /></a>
-					<a  href="https://github.com/dapinkone"><img src="img/github.svg" class="contact_icon"/></a>
+				<li><a href="mailto:peter.iriarte24+web@gmail.com"><img src='./img/envelope-solid.svg'
+							class="contact_icon" /></a>
 				</li>
-				<li><a href="#projects">Projects</a></li>
-				<li><a href="#about-me">About Me</a></li>
+				<li><a href="https://www.linkedin.com/in/peter-iriarte-9a9802138/"><img src='./img/linkedin.svg'
+							class="contact_icon" /></a>
+				</li>
+				<li> <a href="https://github.com/dapinkone"><img src="img/github.svg" class="contact_icon" /></a>
+				</li>
+				<li><a href="#projects" id="projectsButton">Projects</a></li>
+				<li><a href="#about-me" id="about-meButton">About Me</a></li>
 			</ul>
 		</nav>
 	</header>
 
 	<main>
-		<section id="about-me">
+		<section id="about-me" class="card">
 			<h2>About Me</h2>
-			<p>I am a web developer with experience in HTML, CSS, and JavaScript. I enjoy working on both front-end and back-end development, and I am always looking for new projects to challenge my skills.</p>
+			<p>I am a web developer with experience in HTML, CSS, and JavaScript. I enjoy working on both front-end and
+				back-end development, and I am always looking for new projects to challenge my skills.</p>
 		</section>
 
-		<section id="projects">
+		<section id="projects" class="card">
 			<h2>Projects</h2>
 			<ul>
 				<li>
 					<h3>HollowScape</h3>
 					<p>An interactive game built using JavaScript, CSS and HTML.</p>
-					<a href="https://tcss491black1.github.io/Game/">View Project</a><a href="https://github.com/TCSS491Black1/Game/">View Repository</a>
+					<a href="https://tcss491black1.github.io/Game/">View Project</a><a
+						href="https://github.com/TCSS491Black1/Game/">View Repository</a>
 				</li>
 				<li>
 					<h3>Project 1</h3>
@@ -57,4 +65,5 @@
 		<p>Copyright © 2023 Peter Iriarte</p>
 	</footer>
 </body>
+
 </html>
