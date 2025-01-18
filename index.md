@@ -1,4 +1,4 @@
-## Peter Iriarte aka DaPinkOne, Software Developer
+## DaPinkOne : Software Developer
 
 [Email](peter.iriarte24+web@gmail.com) / [Linkedin](https://www.linkedin.com/in/peter-iriarte-9a9802138/) / [Github](https://github.com/dapinkone)
 
