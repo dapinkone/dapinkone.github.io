@@ -1,10 +1,8 @@
 # portfolio site
 
-## About Me
+## Contact Me
 
-- Email
-- Linkedin
-- Github
+[Email](peter.iriarte24+web@gmail.com) / [Linkedin](https://www.linkedin.com/in/peter-iriarte-9a9802138/) / [Github](https://github.com/dapinkone)
 
 ## Projects
 
