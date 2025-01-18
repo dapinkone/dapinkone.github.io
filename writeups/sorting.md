@@ -1,6 +1,50 @@
 # Sorting
 
-### insertion sort
+## Why sorting?
+
+## "Maximum" Speed and Big-O notation
+
+Comparison sorts have a theoretical upper limit of O(nlogn).
+
+## How can we go faster?
+
+- We may have knowledge about the data we're sorting.
+  - Is the data mostly sorted?
+- How large is the array we're sorting?
+
+## Baseline.
+
+To begin optimizing, we have to have some baselines to start from. Lets use some classic sorts, merge sort, and insertion sort, because they're relatively simple to implement:
+
+### Merge Sort (recursive)
+
+Merge sort uses a common algorithmic technique, "divide and conquer", cutting the list in two and sorting the subsequent lists. Recursion is an intuitive approach for divide and conquer. This yields that theoretical O(nlogn) speed:
+
+```python
+	def merge(A, B):  # merges two sorted lists
+        C = list()
+        while len(A) > 0 and len(B) > 0:
+            if A[-1] >= B[-1]:
+                C.append(A.pop())
+            else:
+                C.append(B.pop())
+        C.extend(A)
+        C.extend(B)
+        return C[::-1]
+
+	def mergesort(A):  # merge sort without mutation
+        N = len(A)
+        if N < 2:
+            return A
+        if N == 2:
+            if A[0] > A[1]:
+                return A[::-1]
+
+        return self.merge(self.mergesort(A[: N // 2]), self.mergesort(A[N // 2 :]))
+		```
+### Insertion Sort
+
+Insertion sort uses the idea that if everything from 0..i is sorted, we can sort 0..i+1 by inserting the new element in the already-sorted list, yielding O(n^2) time.
 
 ```python
     def inplaceInsertionSort(self, A):
@@ -19,16 +63,4 @@
                 j -= 1
                 arr[j + 1] = key
   ```
-
-#### Benefits:
-
-- For small n, O(n^2) tends to be faster than the oft-preferred theretical fastest O(nlogn) of other sorts like heapsort, mergesort, quicksort.
-- Simple to implement.
-- Inplace, requiring no further space requirements, or recursive calls on the stack.
-- If data is mostly sorted, can be very fast.
-
-#### Detriments:
-
-- That O(n^2) time.
-
 
