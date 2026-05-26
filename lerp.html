@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+	<main>
+		ideas based on <a href="https://www.youtube.com/watch?v=LSNQuFEDOyQ">Freya Holmér</a>
+		<canvas id="canvas"></canvas>
+
+		<script>
+			const canvas = document.getElementById("canvas");
+			const ctx = canvas.getContext("2d");
+			canvas.focus();
+
+			// add hook for mouse movement
+			addEventListener("mousemove", 
+				(event) => {
+
+				}
+			);
+			// add hook to repaint canvas
+			function vanillaLerp(a, b, delta) {
+				// a - position of object
+				// b - position of destination
+				// delta - speed of object, as percentage of distance to destination
+				return a + (b - a)*delta;
+			}
+		</script>
+	</main>
+</body>
+
+</html>

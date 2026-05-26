@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadow Casting</title>
+<style>
+  canvas {
+    border: 1px solid black;
+  }
+</style>
+</head>
+<body>
+<canvas id="canvas" width="1900" height="1000"></canvas>
+<script>
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+
+  // Define walls or obstacles
+  const walls = [
+    { x1: 100, y1: 100, x2: 300, y2: 100 },
+    { x1: 300, y1: 100, x2: 300, y2: 300 },
+    { x1: 300, y1: 300, x2: 100, y2: 300 },
+    { x1: 100, y1: 300, x2: 100, y2: 100 },
+    { x1: 400, y1: 400, x2: 100, y2: 100 },
+  ];
+
+  // Define viewer token position
+  let viewerX = 200;
+  let viewerY = 200;
+  
+  function castShadows() {
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw walls
+    ctx.strokeStyle = 'black';
+    walls.forEach(wall => {
+      ctx.beginPath();
+      ctx.moveTo(wall.x1, wall.y1);
+      ctx.lineTo(wall.x2, wall.y2);
+      ctx.stroke();
+    });
+
+    // Cast shadows
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    walls.forEach(wall => {
+      // Calculate angles to corners of the wall
+      const angle1 = Math.atan2(wall.y1 - viewerY, wall.x1 - viewerX);
+      const angle2 = Math.atan2(wall.y2 - viewerY, wall.x2 - viewerX);
+
+      // Calculate distance to corners of the wall
+      const dist1 = Math.sqrt((viewerX - wall.x1) ** 2 + (viewerY - wall.y1) ** 2);
+      const dist2 = Math.sqrt((viewerX - wall.x2) ** 2 + (viewerY - wall.y2) ** 2);
+
+      // Draw shadow polygon behind the wall
+      ctx.beginPath();
+      ctx.moveTo(viewerX, viewerY);
+      ctx.lineTo(viewerX + dist1 * Math.cos(angle1), viewerY + dist1 * Math.sin(angle1));
+      ctx.lineTo(viewerX + dist2 * Math.cos(angle2), viewerY + dist2 * Math.sin(angle2));
+      ctx.closePath();
+      ctx.fill();
+    });
+  }
+  // Initial shadow casting
+  castShadows();
+
+  // Example of real-time movement
+  canvas.addEventListener('mousemove', event => {
+    viewerX = event.offsetX;
+    viewerY = event.offsetY;
+    castShadows();
+  });
+</script>
+</body>
+</html>
